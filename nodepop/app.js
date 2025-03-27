@@ -10,8 +10,9 @@ import usersRouter from "./routes/users.js";
 var app = express();
 
 // view engine setup
-app.set('views', path.join(import.meta.dirname, 'views'));
-app.set('view engine', 'ejs');
+app.set('views','views');
+app.set('view engine', 'html');
+app.engine('html', (await import('ejs')).__express);
 
 app.use(logger('dev'));
 app.use(express.json());
