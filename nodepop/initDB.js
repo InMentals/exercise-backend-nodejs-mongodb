@@ -44,9 +44,19 @@ async function initUsers() {
   
     // create products
     const insertResult = await Product.insertMany([
-      { name: 'Volkswagen', owner: admin._id, price: 20000, image: 'image1', tags:['motor', 'lifestyle']},
-      { name: 'Iphone', owner: admin._id, price: 900, image: 'image2', tags:['mobile', 'work'] },
-      { name: 'Bosch', owner: user._id, price: 150, image: 'image3', tags:['work']},
+      { name: 'Volkswagen Golf', 
+        owner: admin._id, 
+        price: 20000, 
+        image: '/images/volkswagen_golf.jpg', tags:['motor', 'lifestyle']},
+      { name: 'Iphone 13', 
+        owner: admin._id, 
+        price: 900, 
+        image: '/images/iphone_13.jpg', 
+        tags:['mobile', 'work'] },
+      { name: 'Bosch drill machine', 
+        owner: user._id, 
+        price: 150, 
+        image: '/images/bosch_drill_maschine.jpg', tags:['work']},
     ])
     console.log(`Inserted ${insertResult.length} products.`);
   }
