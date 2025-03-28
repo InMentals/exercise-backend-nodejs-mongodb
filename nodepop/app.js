@@ -16,7 +16,7 @@ app.set('views','views');
 app.set('view engine', 'html');
 app.engine('html', (await import('ejs')).__express);
 
-app.locals.appName = 'NodeApp';
+app.locals.appName = 'NodePop';
 
 app.use(logger('dev'));
 app.use(express.json());
