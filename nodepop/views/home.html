@@ -5,11 +5,15 @@
     <h1><%= appName %></h1>
     <p>Welcome to <%= appName %></p>
     <h2>Products</h2>
-    <% products.forEach(product => { %>
-      <p>
-        <%= product.name %>: <%=product.price %>€
-      </p>
+    <ul>
+      <% products.forEach(product => { %>
+        <li>
+          <h3><%= product.name %></h3>
+          <p>Price: <%= product.price %>€</p>
+          <img src="<%= product.image %>" width="300" height="200" alt="<%= product.name %>">
+        </li>
       <% }) %>
+    </ul>
 
 
 

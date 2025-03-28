@@ -6,3 +6,17 @@ body {
 a {
   color: #00B7FF;
 }
+
+
+ul {
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ccc; /* Borde gris */
+  border-radius: 5px; /* Bordes redondeados */
+  list-style: none; /* Quitar viñetas */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
