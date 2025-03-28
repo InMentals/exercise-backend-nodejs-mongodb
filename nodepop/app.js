@@ -3,9 +3,12 @@ import express from "express";
 import path from "path";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
-
 import indexRouter from "./routes/index.js";
 import usersRouter from "./routes/users.js";
+import connectMongoose from "./lib/connectMongoose.js";
+
+await connectMongoose();
+console.log('Connected to MongoDB.');
 
 var app = express();
 
