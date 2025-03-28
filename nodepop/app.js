@@ -3,9 +3,8 @@ import express from "express";
 import path from "path";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
-import indexRouter from "./routes/index.js";
-import usersRouter from "./routes/users.js";
 import connectMongoose from "./lib/connectMongoose.js";
+import * as homeController from './controllers/homeController.js'
 
 await connectMongoose();
 console.log('Connected to MongoDB.');
@@ -23,8 +22,12 @@ app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(import.meta.dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+
+//  application routes
+app.get('/', homeController.index)
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
