@@ -4,7 +4,9 @@ import path from "path";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
 import connectMongoose from "./lib/connectMongoose.js";
-import * as homeController from './controllers/homeController.js'
+import * as homeController from './controllers/homeController.js';
+import * as loginController from './controllers/loginController.js';
+
 
 await connectMongoose();
 console.log('Connected to MongoDB.');
@@ -27,6 +29,7 @@ app.use(express.static(path.join(import.meta.dirname, 'public')));
 
 //  application routes
 app.get('/', homeController.index);
+app.get('/login', loginController.index);
 
 
 
