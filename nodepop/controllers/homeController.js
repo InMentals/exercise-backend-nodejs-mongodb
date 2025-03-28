@@ -5,7 +5,7 @@ export async function index(req, res, next) {
  
 
     res.locals.agents = await Product.find();
-    res.render('home', { title: 'Express' });
+    res.render('home');
 
   } catch (error) {
     next(error);
