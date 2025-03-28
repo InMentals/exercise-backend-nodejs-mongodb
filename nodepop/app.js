@@ -24,7 +24,7 @@ app.use(express.static(path.join(import.meta.dirname, 'public')));
 
 
 //  application routes
-app.get('/', homeController.index)
+app.get('/', homeController.index);
 
 
 
