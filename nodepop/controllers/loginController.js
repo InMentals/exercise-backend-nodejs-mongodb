@@ -19,6 +19,7 @@ export async function postLogin(req, res, next) {
             return
         }
     
+        req.session.userId = user.id;
     
     
         res.redirect('/');
