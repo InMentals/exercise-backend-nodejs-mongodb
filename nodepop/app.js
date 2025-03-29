@@ -7,6 +7,7 @@ import connectMongoose from "./lib/connectMongoose.js";
 import * as homeController from './controllers/homeController.js';
 import * as loginController from './controllers/loginController.js';
 import * as sessionManager from './lib/sessionManager.js';
+import * as productController from './controllers/productsController.js'
 
 
 await connectMongoose();
@@ -35,6 +36,7 @@ app.get('/', homeController.index);
 app.get('/login', loginController.index);
 app.post('/login', loginController.postLogin);
 app.get('/logout', loginController.logout);
+app.get('/products/new', productController.index);
 
 
 
