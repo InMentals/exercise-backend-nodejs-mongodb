@@ -16,7 +16,7 @@ export async function postLogin(req, res, next) {
             res.locals.error = 'Invalid credentials';
             res.locals.email = email;
             res.render('login');
-            return
+            return;
         }
     
         req.session.userId = user.id;
@@ -25,7 +25,17 @@ export async function postLogin(req, res, next) {
         res.redirect('/');
 
     } catch (error) {
-        next(erro)
+        next(error);
     }
+}
 
+
+export function logout(req, res, next){
+    req.session.regenerate(err => {
+        if (err) {
+            next(err);
+            return;
+        }
+        res.redirect('/');
+    })
 }

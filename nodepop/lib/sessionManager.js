@@ -1,6 +1,6 @@
 import session from 'express-session';
 
-const INACTIVITY_EXPIRATION_2_DAYS = 1000 * 60 * 60 * 24 * 2
+const INACTIVITY_EXPIRATION_2_DAYS = 1000 * 60 * 60 * 24 * 2;
 
 export const middleware = session({
     name: 'nodepop-session',
@@ -9,4 +9,12 @@ export const middleware = session({
     resave: false,
     cookie: { maxAge: INACTIVITY_EXPIRATION_2_DAYS },
 
-})
+});
+
+
+export function useSessionInViews(req, res, next)  {
+    res.locals.session = req.session;
+    next();
+}
+
+

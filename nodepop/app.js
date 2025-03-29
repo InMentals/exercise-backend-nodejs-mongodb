@@ -30,13 +30,11 @@ app.use(express.static(path.join(import.meta.dirname, 'public')));
 
 //  application routes
 app.use(sessionManager.middleware);
-app.use((req, res, next) => {
-    res.locals.session = req.session;
-    next();
-});
+app.use(sessionManager.useSessionInViews);
 app.get('/', homeController.index);
 app.get('/login', loginController.index);
 app.post('/login', loginController.postLogin);
+app.get('/logout', loginController.logout);
 
 
 
