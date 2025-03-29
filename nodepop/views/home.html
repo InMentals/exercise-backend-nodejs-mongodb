@@ -1,10 +1,12 @@
 <%- include('header.html') %>
 
 
+  <h1>Products</h1>
+  <p>User ID: <%= session.userId %></p>
 
-    <h1><%= appName %></h1>
-    <p>Welcome to <%= appName %></p>
-    <h2>Products</h2>
+  <%if(!session.userId) {%>
+    <p><a href="/login">Login</a> to access your products</p>
+  <% } else {%>
     <ul>
       <% products.forEach(product => { %>
         <li>
@@ -14,6 +16,9 @@
         </li>
       <% }) %>
     </ul>
+  <% } %>
+
+
 
 
 
